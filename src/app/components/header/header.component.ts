@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+
 import { Blog } from 'src/app/models/Blog';
 import { BlogService } from 'src/app/services/blog.service';
 
@@ -12,16 +12,18 @@ import { BlogService } from 'src/app/services/blog.service';
 export class HeaderComponent implements OnInit {
   blogs: Blog[] = [];
 
-  constructor(private http: HttpClient, private blogsService: BlogService) {}
+  constructor(private http: HttpClient, private service: BlogService) {}
 
   ngOnInit(): void {
-    this.getBlogs();
-  }
+    // this.getBlogs();
 
-  getBlogs(): void {
-    this.blogsService.getBlogs().subscribe((data) => {
-      console.log(data);
+    // this.service.getBlogs().subscribe((blogs) => {
+    //   this.blogs = blogs;
+    // });
+
+    this.service.blogs$.subscribe((data: Blog[]) => {
       this.blogs = data;
     });
+    this.service.getBlogs();
   }
 }

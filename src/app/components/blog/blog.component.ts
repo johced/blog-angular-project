@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Blog } from 'src/app/models/Blog';
 import { BlogService } from 'src/app/services/blog.service';
 
@@ -14,9 +13,8 @@ export class BlogComponent implements OnInit {
   user: { id: number };
 
   constructor(
-    private router: Router,
     private route: ActivatedRoute,
-    private http: HttpClient,
+
     private blogsService: BlogService
   ) {}
 
@@ -37,13 +35,8 @@ export class BlogComponent implements OnInit {
     });
   }
 
-  onDeleteBlog() {
-    this.http
-      .delete('https://mi-blogs.azurewebsites.net/api/Blogs/' + this.user.id)
-      .subscribe(() => {
-        this.router.navigate(['/new-blog']).then(() => {
-          window.location.reload();
-        });
-      });
+  onDeleteBlog(): void {
+    let blog: number = this.user.id;
+    this.blogsService.deleteBlog(blog);
   }
 }

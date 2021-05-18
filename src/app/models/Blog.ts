@@ -6,10 +6,10 @@
 
 // export interface Blog {
 export interface Blog {
-  id?: number;
-  title?: string;
+  id: number;
+  title: string;
   //   created: string;
-  userId?: number;
+  userId: number;
   //   posts: Post[] = [];
   // constructor(id: number, title: string, userId: number) {
   //   this.id = id;
