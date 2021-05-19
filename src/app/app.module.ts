@@ -12,6 +12,7 @@ import { PostComponent } from './components/blog/post/post.component';
 import { CommentComponent } from './components/blog/comment/comment.component';
 import { EditPostComponent } from './components/blog/post/edit-post/edit-post.component';
 import { EditCommentComponent } from './components/blog/comment/edit-comment/edit-comment.component';
+import { NewPostComponent } from './components/blog/post/new-post/new-post.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { EditCommentComponent } from './components/blog/comment/edit-comment/edi
     CommentComponent,
     EditPostComponent,
     EditCommentComponent,
+    NewPostComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

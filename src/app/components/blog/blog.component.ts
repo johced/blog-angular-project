@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Blog } from 'src/app/models/Blog';
 import { BlogService } from 'src/app/services/blog.service';
@@ -15,28 +15,25 @@ export class BlogComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
 
-    private blogsService: BlogService
+    private service: BlogService
   ) {}
 
   ngOnInit(): void {
-    this.getBlogs();
-
     this.user = {
       id: this.route.snapshot.params['id'],
     };
     this.route.params.subscribe((params: Params) => {
       this.user.id = params['id'];
     });
-  }
 
-  getBlogs(): void {
-    this.blogsService.getBlogs().subscribe((data) => {
-      this.blogs = data;
+    this.service.blogs$.subscribe((blog) => {
+      this.blogs = blog;
     });
+    this.service.getBlogs();
   }
 
   onDeleteBlog(): void {
     let blog: number = this.user.id;
-    this.blogsService.deleteBlog(blog);
+    this.service.deleteBlog(blog);
   }
 }

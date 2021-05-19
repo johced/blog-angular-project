@@ -28,6 +28,7 @@
           Blogs
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" *ngIf="!blogs.length">No blogs</a>
           <a
             class="dropdown-item"
             *ngFor="let blog of blogs"

@@ -3,6 +3,10 @@
     <div *ngFor="let blog of blogs">
       <h1 *ngIf="blog.id == user.id">{{ blog.title }}</h1>
     </div>
-    <button class="btn btn-danger" (click)="onDeleteBlog()">Delete blog</button>
+
+    <button class="btn btn-danger float-right" (click)="onDeleteBlog()">
+      Delete blog
+    </button>
   </div>
 </div>
+<app-post></app-post>
