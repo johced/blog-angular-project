@@ -1,19 +1,19 @@
-// import { Identifiers } from '@angular/compiler';
-// import { Post } from './Post';
+import { Post } from './Post';
 
-// let newId = 1;
-// const myuserId = 101066
+let time = new Date();
 
-// export interface Blog {
-export interface Blog {
+export class Blog {
   id: number;
   title: string;
-  //   created: string;
+  created?: string;
   userId: number;
-  //   posts: Post[] = [];
-  // constructor(id: number, title: string, userId: number) {
-  //   this.id = id;
-  //   this.title = title;
-  //   this.userId = userId;
-  // }
+  posts: Post[];
+
+  constructor(title: string, userId: number) {
+    this.id = 0;
+    this.title = title;
+    this.created = time.toISOString();
+    this.userId = userId;
+    this.posts = [];
+  }
 }

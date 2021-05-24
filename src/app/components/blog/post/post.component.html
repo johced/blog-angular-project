@@ -1,1 +1,20 @@
-<app-new-post></app-new-post>
+<app-new-post [showpost]="showpost" *ngIf="showpost === true"></app-new-post>
+
+<div *ngFor="let post of posts">
+  <div class="row justify-content-center mt-5" *ngIf="post.blogId === blogId">
+    <div class="card" style="width: 100%">
+      <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+
+        <p class="card-text">
+          {{ post.content }}
+        </p>
+        <div class="float-right mt-2">
+          <a class="card-link">Edit</a>
+          <a class="card-link">Comment</a>
+          <a class="card-link">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

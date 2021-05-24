@@ -10,20 +10,15 @@ import { BlogService } from 'src/app/services/blog.service';
 })
 export class BlogComponent implements OnInit {
   blogs: Blog[] = [];
-  user: { id: number };
+  blogId: number = 0;
+  showpost: boolean = false;
+  buttonname: string = 'New post';
 
-  constructor(
-    private route: ActivatedRoute,
-
-    private service: BlogService
-  ) {}
+  constructor(private route: ActivatedRoute, private service: BlogService) {}
 
   ngOnInit(): void {
-    this.user = {
-      id: this.route.snapshot.params['id'],
-    };
-    this.route.params.subscribe((params: Params) => {
-      this.user.id = params['id'];
+    this.route.paramMap.subscribe((params) => {
+      this.blogId = parseInt(params.get('id'));
     });
 
     this.service.blogs$.subscribe((blog) => {
@@ -33,7 +28,14 @@ export class BlogComponent implements OnInit {
   }
 
   onDeleteBlog(): void {
-    let blog: number = this.user.id;
+    let blog: number = this.blogId;
     this.service.deleteBlog(blog);
+  }
+
+  onToggleNewPost() {
+    this.showpost = !this.showpost;
+    this.showpost === true
+      ? (this.buttonname = 'Close post')
+      : (this.buttonname = 'New post');
   }
 }

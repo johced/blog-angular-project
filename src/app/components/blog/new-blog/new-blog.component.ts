@@ -15,7 +15,7 @@ export class NewBlogComponent implements OnInit {
 
   onNewBlog(postData: Blog) {
     this.service
-      .createAndStoreBlog(postData.title, postData.id)
+      .addBlog(postData.title, postData.id)
       .subscribe((responseData) => {
         this.router.navigate(['/blog', responseData.id, responseData.title]);
       });
