@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Blog } from 'src/app/models/Blog';
 import { Post } from 'src/app/models/Post';
 import { BlogService } from 'src/app/services/blog.service';
@@ -31,6 +31,8 @@ export class PostComponent implements OnInit {
     this.service.getPosts();
 
     // Hämtar bloggen vi är på, för att kunna pusha post till den.
-    this.service.getBlog(this.blogId);
+    this.service.getBlog(this.blogId).subscribe((blog) => {
+      this.blog = blog;
+    });
   }
 }

@@ -1,9 +1,14 @@
 import { HttpClient } from '@angular/common/http';
+import { identifierModuleUrl } from '@angular/compiler';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
+import { stringify } from '@angular/compiler/src/util';
 
 import { EventEmitter, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { title } from 'process';
 import { Observable, Subject } from 'rxjs';
 import { Blog } from '../models/Blog';
+import { Comment } from '../models/Comment';
 import { Post } from '../models/Post';
 
 @Injectable({
@@ -16,7 +21,12 @@ export class BlogService {
   private posts = new Subject<Post[]>();
   posts$ = this.posts.asObservable();
 
+  private comments = new Subject<Comment[]>();
+  comments$ = this.comments.asObservable();
+
   constructor(private router: Router, private http: HttpClient) {}
+
+  // *** POST  ***
 
   addBlog(title: string, id: number): Observable<Blog> {
     const postData: Blog = { title: title, userId: 1010, id: id, posts: [] };
@@ -32,6 +42,30 @@ export class BlogService {
       post
     );
   }
+
+  addComment(comment): Observable<Comment> {
+    return this.http.post<Comment>(
+      'https://mi-blogs.azurewebsites.net/api/Comments',
+      comment
+    );
+  }
+
+  // PUT
+  // updatePost(post): Observable<Post> {
+  //   // const postId = post.id;
+  //   return this.http.put<Post>(
+  //     'https://mi-blogs.azurewebsites.net/api/Posts/' + 585,
+  //     post
+  //   );
+  // }
+
+  updatePost(post): Observable<Post> {
+    console.log(post);
+    const url = `${'https://mi-blogs.azurewebsites.net/api/Posts'}/${post.id}`;
+    return this.http.put<Post>(url, post);
+  }
+
+  // *** GET ***
 
   getBlogs(): void {
     this.http
@@ -55,6 +89,28 @@ export class BlogService {
       });
   }
 
+  getPost(id: number) {
+    return this.http.get<Post>(
+      'https://mi-blogs.azurewebsites.net/api/Posts/' + id
+    );
+  }
+
+  getComments(): void {
+    this.http
+      .get<Comment[]>('https://mi-blogs.azurewebsites.net/api/Comments/')
+      .subscribe((comment) => {
+        this.comments.next(comment);
+      });
+  }
+
+  getComment(id: number) {
+    return this.http.get<Comment[]>(
+      'https://mi-blogs.azurewebsites.net/api/Comments/' + id
+    );
+  }
+
+  // *** DELETE ***
+
   deleteBlog(blogId: number) {
     this.http
       .delete('https://mi-blogs.azurewebsites.net/api/Blogs/' + blogId)
@@ -62,6 +118,14 @@ export class BlogService {
         this.router.navigate(['/new-blog']).then(() => {
           this.getBlogs();
         });
+      });
+  }
+
+  deletePost(id: number) {
+    this.http
+      .delete('https://mi-blogs.azurewebsites.net/api/Posts/' + id)
+      .subscribe(() => {
+        this.getPosts();
       });
   }
 }

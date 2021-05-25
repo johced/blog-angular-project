@@ -1,1 +1,8 @@
-<p>comment works!</p>
+<app-new-comment></app-new-comment>
+<div>
+  <p>Comment component: Show comments here</p>
+</div>
+
+<ul *ngFor="let c of comments">
+  <li *ngIf="c.postId == postId">{{ c.content }}</li>
+</ul>

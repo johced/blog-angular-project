@@ -13,6 +13,8 @@ import { CommentComponent } from './components/blog/comment/comment.component';
 import { EditPostComponent } from './components/blog/post/edit-post/edit-post.component';
 import { EditCommentComponent } from './components/blog/comment/edit-comment/edit-comment.component';
 import { NewPostComponent } from './components/blog/post/new-post/new-post.component';
+import { NewCommentComponent } from './components/blog/comment/new-comment/new-comment.component';
+import { ShowPostComponent } from './components/blog/post/show-post/show-post.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { NewPostComponent } from './components/blog/post/new-post/new-post.compo
     EditPostComponent,
     EditCommentComponent,
     NewPostComponent,
+    NewCommentComponent,
+    ShowPostComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

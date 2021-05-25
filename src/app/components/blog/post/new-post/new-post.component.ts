@@ -31,12 +31,12 @@ export class NewPostComponent implements OnInit {
   }
 
   onNewPost(postData: Post) {
-    let newpost = new Post(postData.title, postData.content, this.blogId);
+    let newpost = new Post(postData.title, postData.content, this.blogId, 0);
     this.service.addPost(newpost).subscribe((poster) => {
       this.service.getBlog(this.blogId).subscribe((data) => {
         this.blog = data;
-        console.log(poster);
-        console.log(this.blog);
+        // console.log(poster);
+        // console.log(this.blog);
         this.service.getPosts();
       });
     });

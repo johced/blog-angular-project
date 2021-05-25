@@ -1,9 +1,10 @@
 export class Comment {
   id: number;
   content: string;
-  // post: {};
-  constructor(id: number, content: string) {
-    this.id = id;
+  postId: number;
+  constructor(content: string, postId: number) {
+    this.id = 0;
     this.content = content;
+    this.postId = postId;
   }
 }
