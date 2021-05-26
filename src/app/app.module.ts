@@ -15,6 +15,7 @@ import { EditCommentComponent } from './components/blog/comment/edit-comment/edi
 import { NewPostComponent } from './components/blog/post/new-post/new-post.component';
 import { NewCommentComponent } from './components/blog/comment/new-comment/new-comment.component';
 import { ShowPostComponent } from './components/blog/post/show-post/show-post.component';
+import { EditBlogComponent } from './components/blog/edit-blog/edit-blog.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ShowPostComponent } from './components/blog/post/show-post/show-post.co
     NewPostComponent,
     NewCommentComponent,
     ShowPostComponent,
+    EditBlogComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

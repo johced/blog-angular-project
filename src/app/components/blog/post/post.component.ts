@@ -14,7 +14,7 @@ export class PostComponent implements OnInit {
 
   blogId: number = 0;
   posts: Post[] = [];
-  blog: Blog[] = [];
+  blog: Blog;
 
   constructor(private route: ActivatedRoute, private service: BlogService) {}
 

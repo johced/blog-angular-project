@@ -40,6 +40,7 @@ export class ShowPostComponent implements OnInit {
 
   onDeletePost(id: number) {
     this.service.deletePost(id);
+    this.location.back();
   }
 
   back() {

@@ -58,4 +58,8 @@ export class EditPostComponent implements OnInit {
     });
     this.postForm.reset();
   }
+
+  back() {
+    this.location.back();
+  }
 }

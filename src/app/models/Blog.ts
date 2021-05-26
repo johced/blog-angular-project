@@ -9,8 +9,8 @@ export class Blog {
   userId: number;
   posts: Post[];
 
-  constructor(title: string, userId: number) {
-    this.id = 0;
+  constructor(title: string, userId: number, id: number) {
+    this.id = id;
     this.title = title;
     this.created = time.toISOString();
     this.userId = userId;

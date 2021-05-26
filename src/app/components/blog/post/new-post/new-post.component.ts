@@ -14,7 +14,7 @@ export class NewPostComponent implements OnInit {
   @ViewChild('f') postForm: NgForm;
   blogs: Blog[] = [];
   blogId: number = 0;
-  blog: Blog[] = [];
+  blog: Blog;
 
   constructor(private route: ActivatedRoute, private service: BlogService) {}
 

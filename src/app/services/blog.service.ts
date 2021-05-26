@@ -36,14 +36,14 @@ export class BlogService {
     );
   }
 
-  addPost(post): Observable<Post> {
+  addPost(post: Post): Observable<Post> {
     return this.http.post<Post>(
       'https://mi-blogs.azurewebsites.net/api/Posts',
       post
     );
   }
 
-  addComment(comment): Observable<Comment> {
+  addComment(comment: Comment): Observable<Comment> {
     return this.http.post<Comment>(
       'https://mi-blogs.azurewebsites.net/api/Comments',
       comment
@@ -51,18 +51,16 @@ export class BlogService {
   }
 
   // PUT
-  // updatePost(post): Observable<Post> {
-  //   // const postId = post.id;
-  //   return this.http.put<Post>(
-  //     'https://mi-blogs.azurewebsites.net/api/Posts/' + 585,
-  //     post
-  //   );
-  // }
 
-  updatePost(post): Observable<Post> {
-    console.log(post);
+  updatePost(post: Post): Observable<Post> {
+    // console.log(post);
     const url = `${'https://mi-blogs.azurewebsites.net/api/Posts'}/${post.id}`;
     return this.http.put<Post>(url, post);
+  }
+
+  updateBlog(blog: Blog): Observable<Blog> {
+    const url = `${'https://mi-blogs.azurewebsites.net/api/Blogs'}/${blog.id}`;
+    return this.http.put<Blog>(url, blog);
   }
 
   // *** GET ***
@@ -76,7 +74,7 @@ export class BlogService {
   }
 
   getBlog(id: number) {
-    return this.http.get<Blog[]>(
+    return this.http.get<Blog>(
       'https://mi-blogs.azurewebsites.net/api/Blogs/' + id
     );
   }
@@ -104,7 +102,7 @@ export class BlogService {
   }
 
   getComment(id: number) {
-    return this.http.get<Comment[]>(
+    return this.http.get<Comment>(
       'https://mi-blogs.azurewebsites.net/api/Comments/' + id
     );
   }

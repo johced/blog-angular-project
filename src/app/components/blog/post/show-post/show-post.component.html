@@ -1,6 +1,7 @@
 <button class="btn btn-secondary btn-sm mt-2 float-right" (click)="back()">
   Back
 </button>
+
 <div *ngFor="let post of posts">
   <div
     class="d-flex flex-column comment-section mt-5"
@@ -23,12 +24,12 @@
     </div>
     <div class="bg-white">
       <div class="d-flex flex-row fs-12">
-        <div class="like p-2 cursor">
+        <div class="p-2 cursor">
           <i class="fa fa-thumbs-o-up"></i
           ><span class="ml-1" routerLink="edit/{{ postId }}">Edit post</span>
         </div>
 
-        <div class="like p-2 cursor" (click)="onDeletePost(post.id)">
+        <div class="p-2 cursor" (click)="onDeletePost(post.id)">
           <i class="fa fa-share"></i><span class="ml-1">Delete post</span>
         </div>
       </div>

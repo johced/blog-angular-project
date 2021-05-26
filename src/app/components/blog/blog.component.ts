@@ -13,6 +13,7 @@ export class BlogComponent implements OnInit {
   blogId: number = 0;
   showpost: boolean = false;
   buttonname: string = 'New post';
+  blog: Blog;
 
   constructor(private route: ActivatedRoute, private service: BlogService) {}
 
@@ -25,6 +26,10 @@ export class BlogComponent implements OnInit {
       this.blogs = blog;
     });
     this.service.getBlogs();
+
+    this.service.getBlog(this.blogId).subscribe((blog) => {
+      this.blog = blog;
+    });
   }
 
   onDeleteBlog(): void {
