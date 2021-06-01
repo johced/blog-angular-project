@@ -40,4 +40,8 @@ export class CommentComponent implements OnInit {
       this.post = data;
     });
   }
+
+  onDeleteComment(id: number) {
+    this.service.deleteComment(id);
+  }
 }

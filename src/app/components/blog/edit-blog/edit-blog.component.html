@@ -1,9 +1,9 @@
-<div class="row justify-content-center mt-5">
-  <div class="col-md-8 mt-5">
+<div class="row mt-5">
+  <div class="col-md-5">
     <form #f="ngForm" (ngSubmit)="onUpdateBlog(f.value)">
       <div class="form-group" *ngIf="blog">
         <div class="form-group">
-          <label for="title">Blog name</label>
+          <label for="title">{{ blog.title }}</label>
           <input
             type="text"
             class="form-control"
@@ -16,9 +16,11 @@
           />
         </div>
       </div>
-
+      <button class="btn btn-light btn-sm float-right" (click)="back()">
+        Cancel
+      </button>
       <button
-        class="btn btn-primary float-right"
+        class="btn btn-light btn-sm float-right mr-2"
         type="submit"
         (click)="back()"
       >

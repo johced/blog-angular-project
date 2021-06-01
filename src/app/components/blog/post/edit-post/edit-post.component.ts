@@ -45,6 +45,7 @@ export class EditPostComponent implements OnInit {
     let updatepost = new Post(
       postData.title,
       postData.content,
+      this.post.created,
       this.post.blogId,
       this.postId
     );

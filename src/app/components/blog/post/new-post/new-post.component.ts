@@ -31,7 +31,13 @@ export class NewPostComponent implements OnInit {
   }
 
   onNewPost(postData: Post) {
-    let newpost = new Post(postData.title, postData.content, this.blogId, 0);
+    let newpost = new Post(
+      postData.title,
+      postData.content,
+      new Date(),
+      this.blogId,
+      0
+    );
     this.service.addPost(newpost).subscribe((poster) => {
       this.service.getBlog(this.blogId).subscribe((data) => {
         this.blog = data;

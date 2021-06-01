@@ -126,4 +126,12 @@ export class BlogService {
         this.getPosts();
       });
   }
+
+  deleteComment(id: number) {
+    this.http
+      .delete('https://mi-blogs.azurewebsites.net/api/Comments/' + id)
+      .subscribe(() => {
+        this.getPosts();
+      });
+  }
 }

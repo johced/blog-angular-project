@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Blog } from 'src/app/models/Blog';
 import { Post } from 'src/app/models/Post';
 import { BlogService } from 'src/app/services/blog.service';
 
@@ -14,6 +15,9 @@ export class ShowPostComponent implements OnInit {
   posts: Post[] = [];
 
   post: Post;
+
+  blogs: Blog[] = [];
+  blog: Blog;
 
   constructor(
     private route: ActivatedRoute,

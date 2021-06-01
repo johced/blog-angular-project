@@ -1,5 +1,5 @@
-<div class="row justify-content-center mt-5">
-  <div class="col-md-8 mt-5">
+<div class="row">
+  <div class="col-md-10">
     <form #f="ngForm" (ngSubmit)="onNewPost(f.value)">
       <div class="form-group">
         <div class="form-group">
@@ -25,7 +25,12 @@
           ></textarea>
         </div>
       </div>
-      <button class="btn btn-primary float-right" type="submit">Post</button>
+      <button
+        class="btn btn-outline-secondary btn-sm float-right"
+        type="submit"
+      >
+        Post
+      </button>
     </form>
   </div>
 </div>

@@ -1,39 +1,46 @@
-<button class="btn btn-secondary btn-sm mt-2 float-right" (click)="back()">
-  Back
-</button>
-
-<div *ngFor="let post of posts">
-  <div
-    class="d-flex flex-column comment-section mt-5"
-    *ngIf="post.id === postId"
-  >
-    <div class="bg-white p-2">
-      <div class="d-flex flex-row user-info">
-        <div class="d-flex flex-column justify-content-start ml-2">
-          <span class="d-block font-weight-bold name">{{ post.title }}</span
-          ><span class="date text-black-50"
-            >Shared publicly - {{ post.created | date: "dd/M/y" }}</span
-          >
+<div class="col-md-7">
+  <div class="row-md-7">
+    <div *ngFor="let post of posts">
+      <div
+        class="d-flex flex-column comment-section mt-5"
+        *ngIf="post.id === postId"
+      >
+        <div class="bg-white">
+          <div class="d-flex flex-row">
+            <div class="cursor">
+              <span routerLink="edit/{{ postId }}">Edit post</span>
+            </div>
+            <div class="ml-4 cursor" (click)="onDeletePost(post.id)">
+              <span>Delete post</span>
+            </div>
+          </div>
+          <button class="btn btn-secondary btn-sm float-right" (click)="back()">
+            Back to blog
+          </button>
+          <hr />
         </div>
-      </div>
-      <div class="mt-2">
-        <p class="comment-text">
-          {{ post.content }}
-        </p>
+        <div class="bg-white">
+          <div class="d-flex flex-row user-info">
+            <div class="d-flex flex-column justify-content-start">
+              <span class="d-block font-weight-bold name"
+                ><h3>{{ post.title }}</h3></span
+              ><span class="date text-black-50"
+                >Shared publicly - {{ post.created | date: "dd/M/y" }}</span
+              >
+              <span class="date text-black-50"
+                >Modified - {{ post.modified | date: "dd/M/y" }}</span
+              >
+            </div>
+          </div>
+          <div class="mt-2">
+            <p class="comment-text lead">
+              {{ post.content }}
+            </p>
+          </div>
+        </div>
+
+        <app-comment></app-comment>
       </div>
     </div>
-    <div class="bg-white">
-      <div class="d-flex flex-row fs-12">
-        <div class="p-2 cursor">
-          <i class="fa fa-thumbs-o-up"></i
-          ><span class="ml-1" routerLink="edit/{{ postId }}">Edit post</span>
-        </div>
-
-        <div class="p-2 cursor" (click)="onDeletePost(post.id)">
-          <i class="fa fa-share"></i><span class="ml-1">Delete post</span>
-        </div>
-      </div>
-    </div>
-    <app-comment></app-comment>
   </div>
 </div>
