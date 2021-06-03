@@ -1,11 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { identifierModuleUrl } from '@angular/compiler';
-import { Content } from '@angular/compiler/src/render3/r3_ast';
-import { stringify } from '@angular/compiler/src/util';
-
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { title } from 'process';
 import { Observable, Subject } from 'rxjs';
 import { Blog } from '../models/Blog';
 import { Comment } from '../models/Comment';
@@ -27,7 +22,6 @@ export class BlogService {
   constructor(private router: Router, private http: HttpClient) {}
 
   // *** POST  ***
-
   addBlog(title: string, id: number): Observable<Blog> {
     const postData: Blog = { title: title, userId: 1010, id: id, posts: [] };
     return this.http.post<Blog>(
@@ -50,10 +44,8 @@ export class BlogService {
     );
   }
 
-  // PUT
-
+  // *** PUT ****
   updatePost(post: Post): Observable<Post> {
-    // console.log(post);
     const url = `${'https://mi-blogs.azurewebsites.net/api/Posts'}/${post.id}`;
     return this.http.put<Post>(url, post);
   }
@@ -64,7 +56,6 @@ export class BlogService {
   }
 
   // *** GET ***
-
   getBlogs(): void {
     this.http
       .get<Blog[]>('https://mi-blogs.azurewebsites.net/api/Blogs/user/1010')
@@ -108,7 +99,6 @@ export class BlogService {
   }
 
   // *** DELETE ***
-
   deleteBlog(blogId: number) {
     this.http
       .delete('https://mi-blogs.azurewebsites.net/api/Blogs/' + blogId)

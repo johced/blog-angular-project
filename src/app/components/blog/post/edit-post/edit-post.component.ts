@@ -36,8 +36,6 @@ export class EditPostComponent implements OnInit {
 
     this.service.getPost(this.postId).subscribe((post) => {
       this.post = post;
-
-      console.log(this.post);
     });
   }
 
@@ -56,7 +54,6 @@ export class EditPostComponent implements OnInit {
         this.post = data;
         this.service.getPosts();
       });
-      console.log(poster);
     });
     this.postForm.reset();
   }

@@ -19,7 +19,6 @@ export class PostComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: BlogService) {}
 
   ngOnInit(): void {
-    // Hämtar id för bloggen vi är på
     this.route.paramMap.subscribe((params) => {
       this.blogId = parseInt(params.get('id'));
     });
@@ -30,7 +29,6 @@ export class PostComponent implements OnInit {
 
     this.service.getPosts();
 
-    // Hämtar bloggen vi är på, för att kunna pusha post till den.
     this.service.getBlog(this.blogId).subscribe((blog) => {
       this.blog = blog;
     });

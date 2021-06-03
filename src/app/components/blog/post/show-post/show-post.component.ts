@@ -26,7 +26,6 @@ export class ShowPostComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Hämtar id för bloggen vi är på
     this.route.paramMap.subscribe((params) => {
       this.postId = parseInt(params.get('id'));
     });

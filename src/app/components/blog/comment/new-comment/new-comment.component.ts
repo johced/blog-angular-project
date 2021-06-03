@@ -29,13 +29,10 @@ export class NewCommentComponent implements OnInit {
   }
 
   onNewComment(postData: Comment) {
-    // Fångar upp texten med hjälp av ngModel
     let newcomment = new Comment(postData.content, this.postId);
     this.service.addComment(newcomment).subscribe((comment) => {
       this.service.getPost(this.postId).subscribe((data) => {
         this.post = data;
-        console.log(comment);
-        console.log(this.post);
         this.service.getComments();
       });
     });

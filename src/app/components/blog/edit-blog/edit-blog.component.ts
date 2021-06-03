@@ -49,7 +49,6 @@ export class EditBlogComponent implements OnInit {
         this.blog = data;
         this.service.getBlogs();
       });
-      console.log(blog);
     });
     this.postForm.reset();
   }
