@@ -5,7 +5,7 @@ export class Post {
   title: string;
   content: string;
   created: Date;
-  modified: string;
+  modified: Date;
   blogId: number;
   comments: Comment[];
 
@@ -13,6 +13,7 @@ export class Post {
     title: string,
     content: string,
     created: Date,
+    modified: Date,
     blogId: number,
     id: number
   ) {
@@ -21,7 +22,8 @@ export class Post {
     this.content = content;
     this.blogId = blogId;
     this.created = created;
-    this.modified = time.toISOString();
+    // this.modified = time.toISOString();
+    this.modified = modified;
     this.comments = [];
   }
 }

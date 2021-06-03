@@ -35,6 +35,7 @@ export class NewPostComponent implements OnInit {
       postData.title,
       postData.content,
       new Date(),
+      new Date(),
       this.blogId,
       0
     );

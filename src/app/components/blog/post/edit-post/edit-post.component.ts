@@ -46,6 +46,7 @@ export class EditPostComponent implements OnInit {
       postData.title,
       postData.content,
       this.post.created,
+      new Date(),
       this.post.blogId,
       this.postId
     );
