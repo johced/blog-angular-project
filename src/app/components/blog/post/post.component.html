@@ -1,21 +1,3 @@
-<!-- <div class="col-md-8">
-  <app-new-post [showpost]="showpost" *ngIf="showpost === true"></app-new-post>
-</div>
-
-<div class="col-md-4 float-right ml-5">
-  <div class="user-info ml-5 mt-5 border-left">
-    <h5 class="pl-3">Blog posts</h5>
-    <ul *ngFor="let post of posts?.reverse()">
-      <li class="list-group-item-light" *ngIf="post.blogId == blogId">
-        <a routerLink="/blog/{{ blog.id }}/{{ blog.title }}/{{ post.id }}">
-          {{ post.title }}</a
-        >
-      </li>
-    </ul>
-  </div>
-</div> -->
-
-<!-- <div class="container"> -->
 <div class="row no-gutters mt-5">
   <div class="col-sm-9 col-md-7 pr-3">
     <div *ngIf="showpost === false">
@@ -29,7 +11,7 @@
         <strong>Things to improve</strong>
         <ul>
           <li>- Error handeling</li>
-          <li>- More validations</li>
+          <li>- More validations and tests</li>
           <li>- Split up my service.ts for get, post, put, delete</li>
           <li>- Improve my folder structure</li>
           <li>
@@ -37,7 +19,7 @@
             urls/params
           </li>
           <li>- Style the page</li>
-          <li>- Log in service</li>
+          <li>- Log in service (now it's free for all)</li>
         </ul>
       </span>
     </div>
@@ -61,4 +43,3 @@
     </ul>
   </div>
 </div>
-<!-- </div> -->

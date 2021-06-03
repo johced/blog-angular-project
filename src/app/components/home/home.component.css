@@ -10,3 +10,16 @@ span {
   font-size: 0.8rem;
   margin-top: 1rem;
 }
+
+a {
+  color: red;
+  font-size: 0.5rem;
+}
+
+h5 {
+  cursor: pointer;
+}
+
+small {
+  font-size: 0.5rem;
+}

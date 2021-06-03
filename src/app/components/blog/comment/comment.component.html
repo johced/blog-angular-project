@@ -3,7 +3,6 @@
 <div *ngFor="let c of comments" class="mt-4">
   <span *ngIf="c.postId == postId">
     {{ c.content }}
-
     <a (click)="onDeleteComment(c.id)">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +22,6 @@
         />
       </svg>
     </a>
-
     <hr />
   </span>
 </div>

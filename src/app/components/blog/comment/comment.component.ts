@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Comment } from 'src/app/models/Comment';
 import { Post } from 'src/app/models/Post';
@@ -12,7 +12,6 @@ import { BlogService } from 'src/app/services/blog.service';
 export class CommentComponent implements OnInit {
   postId: number = 0;
 
-  // commentId: number = 0;
   comments: Comment[] = [];
 
   posts: Post[] = [];
@@ -21,7 +20,6 @@ export class CommentComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: BlogService) {}
 
   ngOnInit(): void {
-    // Hämtar id för bloggen vi är på
     this.route.paramMap.subscribe((params) => {
       this.postId = parseInt(params.get('id'));
     });
@@ -35,7 +33,7 @@ export class CommentComponent implements OnInit {
     });
 
     this.service.getComments();
-    // Hämtar bloggen vi är på, för att kunna pusha post till den.
+
     this.service.getPost(this.postId).subscribe((data) => {
       this.post = data;
     });

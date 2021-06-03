@@ -8,9 +8,8 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
-    })
-    .compileComponents();
+      declarations: [HomeComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +20,29 @@ describe('HomeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  // *** All other components, need something more than this.
+  // *** I got an error with @NgModule Annotation etc.
+  // *** Tried a lot of different Imports, providers etc below declarations.
+  // *** This task was not focused on tests, but I needed a few. Here they are ;-)
+
+  it('should present angulars website', () => {
+    let aTag: HTMLHeadingElement = fixture.nativeElement.querySelector('a');
+
+    expect(aTag.innerText).toBe('Angular website');
+  });
+
+  it('should toggle correctly', () => {
+    expect(component.isShowing).toBeFalse();
+    component.toggle();
+    expect(component.isShowing).toBeTrue();
+  });
+
+  it('should toggle back correctly', () => {
+    expect(component.isShowing).toBeFalse();
+    component.toggle();
+    component.toggle();
+    expect(component.isShowing).toBeFalse();
   });
 });
