@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+# GH PAGES - the way I got it to work
+1 - ng add angular-cli-ghpages
+It will update the angular.json file. 
+2 - add commit and push. 
+3 - ng deply --base-href=your-repo-name
+Code will upload into separate branch called gh-pages
+4 - go to settings and choose your repo, choose gh pages and root. Wait for a few seconds and there you go. 
+
+* Comment * First page doesn't load until you click on HOME. Don't know why, but now I have to study for big test. :-)
