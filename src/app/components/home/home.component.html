@@ -1,0 +1,42 @@
+<div class="row justify-content-center mt-5">
+  <div class="col-md-8 mt-5 card p-4 shadow">
+    <h4>First Angular project: CRUD Blog</h4>
+
+    <small> Visit: <a href="http://angular.io">Angular website</a></small>
+    <br />
+    <h5 class="badge badge-secondary">What you can do</h5>
+    <br />
+    <h6>Blog</h6>
+    <i class="mb-2">
+      The blog gets a unique ID (connected to this sites userId on the API)
+    </i>
+    <ul>
+      <li>Create</li>
+      <li>Edit</li>
+      <li>Delete</li>
+    </ul>
+    <h6>Post</h6>
+    <ul>
+      <li>Create (to a specific blog)</li>
+      <li>Edit</li>
+      <li>Delete</li>
+    </ul>
+    <h6>Comment</h6>
+    <ul>
+      <li>Create (to a specific post)</li>
+      <li>Delete</li>
+    </ul>
+    <h6>View blogs</h6>
+    <ul>
+      <li>In the top-nav you can choose what blog to read</li>
+    </ul>
+    <h5 class="badge badge-secondary mt-3" (click)="toggle()">
+      Some comments (click me)
+    </h5>
+    <span *ngIf="isShowing">
+      This was a task for our 6 week course in Angular. First time working with
+      SPA, it was fun and I've learned a lot. Next challenges will be with
+      REACT.
+    </span>
+  </div>
+</div>

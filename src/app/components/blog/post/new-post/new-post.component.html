@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-10">
+    <form #f="ngForm" (ngSubmit)="onNewPost(f.value)">
+      <div class="form-group">
+        <div class="form-group">
+          <label for="name">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            required
+            minlength="3"
+            ngModel
+            name="title"
+            placeholder="..."
+          />
+        </div>
+        <div class="form-group">
+          <label for="blogpost">Blogpost</label>
+          <textarea
+            type="text"
+            class="form-control"
+            id="content"
+            required
+            minlength="3"
+            ngModel
+            name="content"
+            rows="4"
+          ></textarea>
+        </div>
+      </div>
+      <button
+        class="btn btn-outline-secondary btn-sm float-right"
+        type="submit"
+        [disabled]="!f.form.valid"
+      >
+        Post
+      </button>
+    </form>
+  </div>
+</div>
+<!-- <ul *ngFor="let blog of blogs">
+  <li>{{ blog.title }}</li>
+</ul> -->

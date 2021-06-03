@@ -1,0 +1,45 @@
+<div class="row no-gutters mt-5">
+  <div class="col-sm-9 col-md-7 pr-3">
+    <div *ngIf="showpost === false">
+      <p><strong>Welcome!</strong></p>
+      <span
+        >I'm so glad you found my blog, here you will have to imagine that you
+        had the opportunity to write some info about your blog, like your
+        startpage. </span
+      ><br /><br />
+      <span>
+        <strong>Things to improve</strong>
+        <ul>
+          <li>- Error handeling</li>
+          <li>- More validations and tests</li>
+          <li>- Split up my service.ts for get, post, put, delete</li>
+          <li>- Improve my folder structure</li>
+          <li>
+            - Working with Input/Output more, so I wouldn't be so locked with
+            urls/params
+          </li>
+          <li>- Style the page</li>
+          <li>- Log in service (now it's free for all)</li>
+        </ul>
+      </span>
+    </div>
+    <app-new-post
+      [showpost]="showpost"
+      *ngIf="showpost === true"
+    ></app-new-post>
+  </div>
+  <div class="col-sm-3 col-md-5 float-right border-left">
+    <h5 class="pl-3">Blog posts</h5>
+    <ul *ngFor="let post of posts?.reverse()">
+      <li class="list-group-item-light" *ngIf="post.blogId == blogId">
+        <a routerLink="/blog/{{ blog.id }}/{{ blog.title }}/{{ post.id }}">
+          {{ post.title }}</a
+        ><br />
+        <span>Comments:</span>
+        <span class="badge badge-dark badge-pill">{{
+          post.comments.length
+        }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

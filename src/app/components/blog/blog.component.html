@@ -1,0 +1,22 @@
+<div class="row mr-5 mt-5">
+  <div class="col-md-8">
+    <div *ngFor="let blog of blogs">
+      <h1 *ngIf="blog.id == blogId">{{ blog.title }}</h1>
+    </div>
+    <button class="btn btn-light mt-4 mr-1 btn-sm" (click)="onToggleNewPost()">
+      {{ buttonname }}
+    </button>
+    <button
+      *ngIf="blog"
+      class="btn btn-light mt-4 mr-1 btn-sm"
+      routerLink="/blog/{{ blogId }}/{{ blog.title }}/edit/{{ blogId }}"
+    >
+      Edit blogname
+    </button>
+    <button class="btn btn-light mt-4 mr-1 btn-sm" (click)="onDeleteBlog()">
+      Delete blog
+    </button>
+  </div>
+</div>
+
+<app-post [showpost]="showpost"></app-post>
