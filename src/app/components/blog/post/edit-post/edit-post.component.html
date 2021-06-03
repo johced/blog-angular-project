@@ -8,7 +8,9 @@
             type="text"
             class="form-control"
             id="title"
-            ngModel
+            required
+            minlength="5"
+            #editBlogTitle="ngModel"
             name="title"
             placeholder="..."
             [(ngModel)]="post.title"
@@ -20,26 +22,30 @@
             type="text"
             class="form-control"
             id="content"
-            ngModel
+            required
+            minlength="3"
+            editBlogContent="ngModel"
             name="content"
             rows="4"
             [(ngModel)]="post.content"
           ></textarea>
         </div>
+        <button
+          class="btn btn-secondary btn-sm float-right"
+          type="submit"
+          [disabled]="!f.form.valid"
+          (click)="back()"
+        >
+          Update
+        </button>
+        <button
+          class="btn btn-secondary btn-sm float-right mr-1"
+          [disabled]="f.form.dirty"
+          (click)="back()"
+        >
+          Cancel
+        </button>
       </div>
-      <button
-        class="btn btn-secondary btn-sm float-right"
-        type="submit"
-        (click)="back()"
-      >
-        Update
-      </button>
-      <button
-        class="btn btn-secondary btn-sm float-right mr-1"
-        (click)="back()"
-      >
-        Cancel
-      </button>
     </form>
   </div>
 </div>

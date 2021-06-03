@@ -8,6 +8,8 @@
             type="text"
             class="form-control"
             id="title"
+            required
+            minlength="3"
             ngModel
             name="title"
             placeholder="..."
@@ -19,6 +21,8 @@
             type="text"
             class="form-control"
             id="content"
+            required
+            minlength="3"
             ngModel
             name="content"
             rows="4"
@@ -28,6 +32,7 @@
       <button
         class="btn btn-outline-secondary btn-sm float-right"
         type="submit"
+        [disabled]="!f.form.valid"
       >
         Post
       </button>

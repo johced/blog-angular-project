@@ -6,15 +6,19 @@
           type="text"
           class="form-control"
           id="content"
+          required
+          minlength="10"
           ngModel
           name="content"
           rows="3"
+          placeholder=".........."
         ></textarea>
       </div>
       <div class="mb-2 text-right">
         <button
           class="btn btn-outline-secondary btn-sm shadow-none"
           type="submit"
+          [disabled]="!f.form.valid"
         >
           Comment
         </button>
