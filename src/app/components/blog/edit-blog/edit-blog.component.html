@@ -1,0 +1,42 @@
+<div class="row mt-5">
+  <div class="col-md-5">
+    <form #f="ngForm" (ngSubmit)="onUpdateBlog(f.value)">
+      <div class="form-group" *ngIf="blog">
+        <div class="form-group">
+          <label for="title">{{ blog.title }}</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            required
+            minlength="5"
+            #updateBlogName="ngModel"
+            name="title"
+            placeholder="..."
+            [(ngModel)]="blog.title"
+          />
+        </div>
+        <small
+          class="form-text text-muted"
+          *ngIf="updateBlogName.touched && !updateBlogName.valid"
+          >At least 5 caracters</small
+        >
+      </div>
+      <button
+        class="btn btn-light btn-sm float-right"
+        [disabled]="f.form.dirty"
+        (click)="back()"
+      >
+        Cancel
+      </button>
+      <button
+        class="btn btn-light btn-sm float-right mr-2"
+        type="submit"
+        [disabled]="!f.form.valid"
+        (click)="back()"
+      >
+        Update
+      </button>
+    </form>
+  </div>
+</div>
